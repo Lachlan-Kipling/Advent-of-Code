@@ -16,39 +16,23 @@ public class day3 {
             int totalScore = 0;
 
             while(line!=null){
-                //Split line into individual chars
-                char[] chars = line.toCharArray();
+                //Split lines into individual chars
+                char[] chars1 = line.toCharArray();
 
-                //create 2 compartments, each half the length of chars
-                char[] comp1 = new char[chars.length/2];
-                char[] comp2 = new char[chars.length/2];
+                String line2 = bufrdr.readLine();
+                char[] chars2 = line2.toCharArray();
 
-                //counter variable for looping through chars
-                int i = 0;
-                //populate comp1
-                while(i<comp1.length)
-                {
-                    comp1[i]=chars[i];
-                    i++;
-                }
+                String line3 = bufrdr.readLine();
+                char[] chars3 = line3.toCharArray();
 
-                //counter variable for looping through 
-                int j = 0;
-                //populate comp2
-                while(i<chars.length){
-                    comp2[j]=chars[i];
-                    i++;
-                    j++;
-                }
+                char duplicate = ' ';
 
-                //Char to store duplicate value
-                char duplicate =' ';
-
-                //check each element in comp1, compare it to each element in comp2. If the same value is found, it is the duplicate
-                for (char comp1Char : comp1) {
-                    for (char comp2Char : comp2) {
-                        if(comp1Char==comp2Char){
-                            duplicate = comp1Char;
+                for (char char1 : chars1) {
+                    for (char char2 : chars2) {
+                        for (char char3 : chars3) {
+                            if((char1==char2)&&(char2==char3)){
+                                duplicate = char1;
+                            }
                         }
                     }
                 }
